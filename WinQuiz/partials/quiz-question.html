@@ -1,0 +1,41 @@
+﻿<h2></h2>
+<p class="lead">
+    {{ question.Question }}
+</p>
+
+<div class="row" ng-repeat="answer in question.Answers">
+    <button type="button"
+            ng-click="userSelectAnswer(answer)"
+            ng-attr-class="{{ answer.Chosen && 'btn btn-lg btn-success answer' || 'btn btn-lg btn-default answer'}}">
+        {{ answer.Text }}
+    </button>
+</div>
+
+<div class="row" style="margin-bottom: 20px; margin-top: 20px;">
+    <button type="button"
+            class="btn btn-warning btn-lg nextPrevFinish"
+            role="button"
+            ng-disabled="isFirstQuestion"
+            ng-click="prev()">
+        Previous
+    </button>
+    <button type="button"
+        class="btn btn-primary btn-lg active nextPrevFinish"
+        role="button"
+        ng-if="!isLastQuestion"
+        ng-disabled="!answered"
+        ng-click="next()">Next</button>
+    <a href="#/leaderboard"
+        class="btn btn-primary btn-lg active nextPrevFinish"
+        role="button"
+        ng-if="isLastQuestion"
+        ng-disabled="!answered">Finish</a>
+</div>
+<p>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" ng-style="{ width: percentComplete + '%' }">
+            {{ percentComplete }}% (Question #{{ questionId + 1 }} of {{ lastQuestionId + 1 }})
+        </div>
+    </div>
+    <!--Time taken: {{ elapsed || '-' | number:0 }}s-->
+</p>

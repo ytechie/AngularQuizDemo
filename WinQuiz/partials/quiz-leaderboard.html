@@ -1,0 +1,15 @@
+﻿<div class="panel panel-danger" ng-if="error">
+    <div class="panel-heading">Error</div>
+    <div class="panel-body">
+        <p>An error has occurred. Please refresh the page to try again.</p>
+        {{ error.toString() }}
+    </div>
+</div>
+
+<div ng-if="numCorrect">
+    <h2>Your Score</h2>
+    <p>
+        Number of correct answers: {{ numCorrect }}<br />
+        Your Score: {{ percentCorrect | number:0 }}%<br />
+    </p>
+</div>

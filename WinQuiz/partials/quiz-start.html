@@ -1,0 +1,25 @@
+﻿<div class="container" style="margin-top: 20px;">
+    <div class="row" style="margin-bottom: 20px;">
+        <div class="col-md-11">
+            <span style="font-size: 18pt; font-weight: bold; color: #0039B3;">Quiz Demo</span><br />
+        </div>
+    </div>
+    
+    <div class="row">
+        <p class="lead">
+            Please sign in:<br />
+            First Name: <input ng-model="user.firstName" /><br />
+            Last Name: <input ng-model="user.lastName" /><br />
+            Company Name: <input ng-model="user.companyName" /><br />
+            Job Title: <input ng-model="user.jobTitle" /><br />
+            Email address (work): <input ng-model="user.email" />
+        </p>
+
+        <p class="lead">
+            Ready to start the quiz? Choose your quiz type below:
+        </p>
+
+        <button type="button" class="btn btn-lg btn-primary" ng-click="begin(2)" ng-disabled="!user.email">Quiz #1</button>
+        <button type="button" class="btn btn-lg btn-primary" ng-click="begin(1)" ng-disabled="!user.email">Quiz #2</button>
+    </div>
+</div>
